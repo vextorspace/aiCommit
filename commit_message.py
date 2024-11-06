@@ -21,6 +21,8 @@ class CommitMessage:
         return True
 
     def get_commit_message(self):
+        if self.is_good_commit() and self.commitPrompt is not None:
+            return self.commitPrompt.get_commit_message()
         return ""
 
 class TestCommitMessage(unittest.TestCase):
@@ -48,7 +50,15 @@ class TestCommitMessage(unittest.TestCase):
         commit_gen.get_commit_message()
         assert(mock_commit_prompt.get_commit_message.called == False)
 
+    def test_good_diff_calls_commit_prompt(self):
+        mock_diff = MagicMock(spec=GitDiff)
+        mock_diff.get_diff.return_value = "::ANY DIFF AT ALL::"
 
+        mock_commit_prompt = MagicMock(spec=CommitPrompt)
+
+        commit_gen = CommitMessage(mock_diff, mock_commit_prompt)
+        commit_gen.get_commit_message()
+        assert(mock_commit_prompt.get_commit_message.called == True)
 
 
 
