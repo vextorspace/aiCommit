@@ -26,7 +26,7 @@ class TestCommitMessage(unittest.TestCase):
         commit_gen = CommitMessage(mock_diff)
         assert(commit_gen.is_good_commit() == False)
 
-    def test_no_diff_makes_good_commit(self):
+    def test_diff_makes_good_commit(self):
         mock_diff = MagicMock(spec=GitDiff)
 
         mock_diff.get_diff.return_value = "::ANY DIFF AT ALL::"
