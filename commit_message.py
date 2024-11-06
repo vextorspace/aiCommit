@@ -60,7 +60,15 @@ class TestCommitMessage(unittest.TestCase):
         commit_gen.get_commit_message()
         assert(mock_commit_prompt.get_commit_message.called == True)
 
+    def test_good_diff_returns_commit_message(self):
+        mock_diff = MagicMock(spec=GitDiff)
+        mock_diff.get_diff.return_value = "::ANY DIFF AT ALL::"
 
+        mock_commit_prompt = MagicMock(spec=CommitPrompt)
+        mock_commit_prompt.get_commit_message.return_value = "::COMMIT MESSAGE::"
+
+        commit_gen = CommitMessage(mock_diff, mock_commit_prompt)
+        assert(commit_gen.get_commit_message() == "::COMMIT MESSAGE::")
 
 if __name__ == '__main__':
     unittest.main()
