@@ -1,4 +1,4 @@
-from get_git_diff import GitDiff
+from git_diff import GitDiff
 from langchain_openai import ChatOpenAI
 from langchain.prompts import ChatPromptTemplate
 from langchain_core.output_parsers import JsonOutputParser
