@@ -15,7 +15,7 @@ class CommitPrompt:
         return f"{self.PROMPT}{diff}"
 
 
-class CommitPromptTest(unittest.TestCase):
+class TestCommitPrompt(unittest.TestCase):
     def test_diff_packaged_with_prompt_to_ai(self):
         mockAi = MagicMock(spec=Ai)
         mockAi.get_commit_message.return_value = "::FAKE COMMIT MESSAGE::"
