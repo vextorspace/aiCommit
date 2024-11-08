@@ -1,10 +1,6 @@
 from git_diff import GitDiff
 from commit_prompt import CommitPrompt
 
-from langchain_openai import ChatOpenAI
-from langchain.prompts import ChatPromptTemplate
-from langchain_core.output_parsers import JsonOutputParser
-from dotenv import load_dotenv
 import os
 import unittest
 from unittest.mock import MagicMock
