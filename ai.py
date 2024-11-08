@@ -16,11 +16,11 @@ class Ai:
             openai_api_key=os.getenv("OPENAI_API_KEY")
         )
 
-    def get_commit_message(self, prompt):
+    def get_commit_message(self, diff):
         prompt_template = """
                             You are a terse and efficient developer.
                             You only state the most important change.
-                            Your task is: {prompt}:
+                            the diff is: {diff}:
 
                             please write a commit message that is 50 characters or less. """
 
@@ -30,7 +30,7 @@ class Ai:
         commit_chain = commit_prompt | self.llm
 
         # Run the chain
-        commit = commit_chain.invoke({"prompt": prompt})
+        commit = commit_chain.invoke({"diff": diff})
         return commit.content.strip()
 
 class TestAi(unittest.TestCase):
