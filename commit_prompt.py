@@ -9,7 +9,7 @@ class CommitPrompt:
         self.ai = ai
 
     def get_commit_message(self, diff):
-        return self.ai.get_commit_message(f"{self.prompt(diff)}")
+        return self.ai.get_commit_message(f"{diff}")
 
     def prompt(self, diff):
         return f"{self.PROMPT}{diff}"
