@@ -1,6 +1,7 @@
 import unittest
 from commit_prompt import TestCommitPrompt
 from commit_message import TestCommitMessage
+from ai import TestAi
 
 def suite():
     suite = unittest.TestSuite()
@@ -8,6 +9,7 @@ def suite():
 
     suite.addTests(loader.loadTestsFromTestCase(TestCommitPrompt))
     suite.addTests(loader.loadTestsFromTestCase(TestCommitMessage))
+    suite.addTests(loader.loadTestsFromTestCase(TestAi))
 
     return suite
 
