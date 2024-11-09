@@ -21,7 +21,6 @@ class CommitMessage:
     def get_commit_message(self):
         if self.is_good_commit() and self.commitPrompt is not None:
             diff = self.gitDiff.get_diff()
-            print("diff is: ", diff)
             return self.commitPrompt.get_commit_message(diff)
         return ""
 

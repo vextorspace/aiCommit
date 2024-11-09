@@ -5,4 +5,4 @@ class GitDiff:
         self.path = path
 
     def get_diff(self):
-        return subprocess.check_output(['git', 'diff', self.path])
+        return subprocess.check_output(['git', 'diff', 'HEAD', self.path])
