@@ -22,6 +22,7 @@ class Ai:
                             You only state the most important changes in commit messages.
                             Each change should be on its own line.
                             Each change message should be 50 characters or less.
+                            Try to keep each change message below 6 words if possible.
                             An added or removed file should be mentioned in the message.
                                 the diff is: {diff}:
 
