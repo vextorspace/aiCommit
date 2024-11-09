@@ -1,7 +1,9 @@
+import commit_prompt
 from git_diff import GitDiff
 from commit_prompt import CommitPrompt
 
 import os
+import sys
 import unittest
 from unittest.mock import MagicMock
 
@@ -18,7 +20,7 @@ class CommitMessage:
 
     def get_commit_message(self):
         if self.is_good_commit() and self.commitPrompt is not None:
-            return self.commitPrompt.get_commit_message()
+            return self.commitPrompt.get_commit_message(git_diff.get_diff())
         return ""
 
 class TestCommitMessage(unittest.TestCase):
@@ -67,4 +69,16 @@ class TestCommitMessage(unittest.TestCase):
         assert(commit_gen.get_commit_message() == "::COMMIT MESSAGE::")
 
 if __name__ == '__main__':
-    pass
+    if len(sys.argv) == 1:
+        repo_path = os.getcwd()
+    else:
+        repo_path = sys.argv[1]
+
+    if not os.path.isdir(repo_path):
+        print(f"Error: {repo_path} is not a valid directory")
+        sys.exit(1)
+
+    git_diff = GitDiff(repo_path)
+    commit_prompt = CommitPrompt()
+    commit_message_generator = CommitMessage(git_diff, commit_prompt)
+    print(commit_message_generator.get_commit_message())

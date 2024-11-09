@@ -4,7 +4,7 @@ from ai import Ai
 
 class CommitPrompt:
 
-    def __init__(self, ai):
+    def __init__(self, ai =  Ai()):
         self.ai = ai
 
     def get_commit_message(self, diff):
