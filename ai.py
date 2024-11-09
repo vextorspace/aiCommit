@@ -20,12 +20,12 @@ class Ai:
         prompt_template = """
                             You are a terse and efficient developer.
                             You only state the most important changes in commit messages.
-                            each change should be on its own line.
-                            each change message should be 50 characters or less.
-                            an added or removed file should be mentioned in the message.
-                            the diff is: {diff}:
+                            Each change should be on its own line.
+                            Each change message should be 50 characters or less.
+                            An added or removed file should be mentioned in the message.
+                                the diff is: {diff}:
 
-                            please write a non-generic commit message. """
+                            Write a non-generic commit message. """
 
         commit_prompt = ChatPromptTemplate.from_template(prompt_template)
 
