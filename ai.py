@@ -19,10 +19,12 @@ class Ai:
     def get_commit_message(self, diff):
         prompt_template = """
                             You are a terse and efficient developer.
-                            You only state the most important change.
+                            You only state the most important changes in commit messages.
+                            each change should be on its own line.
+                            each change message should be 50 characters or less.
                             the diff is: {diff}:
 
-                            please write a commit message that is 50 characters or less. """
+                            please write a non-generic commit message. """
 
         commit_prompt = ChatPromptTemplate.from_template(prompt_template)
 
