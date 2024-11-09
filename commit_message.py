@@ -67,4 +67,4 @@ class TestCommitMessage(unittest.TestCase):
         assert(commit_gen.get_commit_message() == "::COMMIT MESSAGE::")
 
 if __name__ == '__main__':
-    unittest.main()
+    pass

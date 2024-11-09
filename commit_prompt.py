@@ -18,6 +18,3 @@ class TestCommitPrompt(unittest.TestCase):
         assert(commit_prompt.get_commit_message("::DIFF::") == "::FAKE COMMIT MESSAGE::")
         expectedPrompt = f"::DIFF::"
         mockAi.get_commit_message.assert_called_once_with(expectedPrompt)
-
-if __name__ == '__main__':
-    unittest.main()
