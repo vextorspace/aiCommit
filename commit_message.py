@@ -79,7 +79,6 @@ if __name__ == '__main__':
         print(f"Error: {repo_path} is not a valid directory")
         sys.exit(1)
 
-    print(f"Using repo path: {repo_path}")
     git_diff = GitDiff(repo_path)
     commit_prompt = CommitPrompt()
     commit_message_generator = CommitMessage(git_diff, commit_prompt)
