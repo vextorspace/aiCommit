@@ -20,7 +20,9 @@ class CommitMessage:
 
     def get_commit_message(self):
         if self.is_good_commit() and self.commitPrompt is not None:
-            return self.commitPrompt.get_commit_message(git_diff.get_diff())
+            diff = self.gitDiff.get_diff()
+            print("diff is: ", diff)
+            return self.commitPrompt.get_commit_message(diff)
         return ""
 
 class TestCommitMessage(unittest.TestCase):
@@ -78,6 +80,7 @@ if __name__ == '__main__':
         print(f"Error: {repo_path} is not a valid directory")
         sys.exit(1)
 
+    print(f"Using repo path: {repo_path}")
     git_diff = GitDiff(repo_path)
     commit_prompt = CommitPrompt()
     commit_message_generator = CommitMessage(git_diff, commit_prompt)
