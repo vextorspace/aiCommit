@@ -26,13 +26,13 @@ jobs:
 
       - name: Build executable
         run: |
-          pyinstaller --onefile ai_coder.py
+          pyinstaller --onefile commit_message.py
 
       - name: Upload artifact
         uses: actions/upload-artifact@v4
         with:
-          name: ai_coder_linux
-          path: dist/ai_coder
+          name: ai_commit_message_linux
+          path: dist/commit_message
 
   build-macos:
     runs-on: macos-latest
@@ -48,13 +48,13 @@ jobs:
           pip install -r requirements.txt
           pip install pyinstaller
       - name: Build executable
-        run: pyinstaller --onefile ai_coder.py
+        run: pyinstaller --onefile commit_message.py
 
       - name: Upload artifact
         uses: actions/upload-artifact@v4
         with:
-          name: ai_coder_macos
-          path: dist/ai_coder
+          name: ai_commit_message_macos
+          path: dist/commit_message
 
   build-windows:
     runs-on: windows-latest
@@ -70,9 +70,9 @@ jobs:
           pip install -r requirements.txt
           pip install pyinstaller
       - name: Build executable
-        run: pyinstaller --onefile ai_coder.py
+        run: pyinstaller --onefile commit_message.py
       - name: Upload artifact
         uses: actions/upload-artifact@v4
         with:
-          name: ai_coder_windows
-          path: dist/ai_coder.exe
+          name: ai_commit_message_windows
+          path: dist/commit_message.exe
