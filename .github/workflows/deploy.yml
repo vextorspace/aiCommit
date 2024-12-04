@@ -26,7 +26,7 @@ jobs:
 
       - name: Build executable
         run: |
-          pyinstaller --onefile commit_message.py
+          pyinstaller commit_message.spec
 
       - name: Upload artifact
         uses: actions/upload-artifact@v4
@@ -48,7 +48,7 @@ jobs:
           pip install -r requirements.txt
           pip install pyinstaller
       - name: Build executable
-        run: pyinstaller --onefile commit_message.py
+        run: pyinstaller commit_message.spec
 
       - name: Upload artifact
         uses: actions/upload-artifact@v4
@@ -70,7 +70,7 @@ jobs:
           pip install -r requirements.txt
           pip install pyinstaller
       - name: Build executable
-        run: pyinstaller --onefile commit_message.py
+        run: pyinstaller commit_message.spec
       - name: Upload artifact
         uses: actions/upload-artifact@v4
         with:
