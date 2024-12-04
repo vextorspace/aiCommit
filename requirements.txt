@@ -1,0 +1,15 @@
+langchain
+langchain-openai
+langchain-anthropic
+langchain-community
+langchain-core
+jupyter
+openai
+chromadb
+nest_asyncio
+tavily-python
+fal-client
+python-dotenv
+faiss-cpu
+gradio
+pytest
